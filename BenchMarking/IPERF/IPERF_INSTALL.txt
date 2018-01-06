@@ -1,0 +1,20 @@
+sudo yum install gcc-c++
+
+wget https://sourceforge.net/projects/iperf/files/latest/download/iperf-2.0.5.tar.gz
+tar -xvf iperf-2.0.5.tar.gz
+cd iperf-2.0.5
+./configure
+make 
+make install
+
+// RUN SERVER 
+cd src
+./iperf -s
+
+// RUN CLIENT 
+
+cd src 
+./iperf -c 172.31.62.237
+
+
+

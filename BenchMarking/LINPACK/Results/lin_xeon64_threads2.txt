@@ -1,0 +1,47 @@
+Fri Feb 12 03:07:30 UTC 2016
+Intel(R) Optimized LINPACK Benchmark data
+
+Current date/time: Fri Feb 12 03:07:30 2016
+
+CPU frequency:    2.825 GHz
+Number of CPUs: 1
+Number of cores: 1
+Number of threads: 2
+
+Parameters are set to:
+
+Number of tests: 15
+Number of equations to solve (problem size) : 1000  2000  5000  10000 15000 18000 20000 22000 25000 26000 27000 30000 35000 40000 45000
+Leading dimension of array                  : 1000  2000  5008  10000 15000 18008 20016 22008 25000 26000 27000 30000 35000 40000 45000
+Number of trials to run                     : 4     2     2     2     2     2     2     2     2     2     1     1     1     1     1    
+Data alignment value (in Kbytes)            : 4     4     4     4     4     4     4     4     4     4     4     1     1     1     1    
+
+Maximum memory requested that can be used=800204096, at the size=10000
+
+=================== Timing linear equation system solver ===================
+
+Size   LDA    Align. Time(s)    GFlops   Residual     Residual(norm) Check
+1000   1000   4      0.026      25.7733  7.441825e-13 2.537853e-02   pass
+1000   1000   4      0.024      27.6252  7.441825e-13 2.537853e-02   pass
+1000   1000   4      0.025      27.2035  7.441825e-13 2.537853e-02   pass
+1000   1000   4      0.024      27.6231  7.441825e-13 2.537853e-02   pass
+2000   2000   4      0.180      29.6693  3.616191e-12 3.145643e-02   pass
+2000   2000   4      0.184      29.0178  3.616191e-12 3.145643e-02   pass
+5000   5008   4      2.578      32.3481  2.067851e-11 2.883452e-02   pass
+5000   5008   4      2.548      32.7188  2.067851e-11 2.883452e-02   pass
+10000  10000  4      19.641     33.9535  6.859494e-11 2.418727e-02   pass
+10000  10000  4      19.260     34.6240  6.859494e-11 2.418727e-02   pass
+
+Performance Summary (GFlops)
+
+Size   LDA    Align.  Average  Maximal
+1000   1000   4       27.0563  27.6252 
+2000   2000   4       29.3436  29.6693 
+5000   5008   4       32.5334  32.7188 
+10000  10000  4       34.2888  34.6240 
+
+Residual checks PASSED
+
+End of tests
+
+Done: Fri Feb 12 03:08:30 UTC 2016

@@ -1,0 +1,8 @@
+wget http://registrationcenter.intel.com/irc_nas/3914/l_lpk_p_11.1.2.005.tgz -O /tmp/l_lpk.tgz
+tar -xzf /tmp/l_lpk.tgz -C /tmp/
+cp -a /tmp/linpack_11.1.2/benchmarks/linpack/ /home/ec2-user/
+
+ln -sf /home/ec2-user/linpack/runme_xeon64 /usr/sbin/
+ln -sf /home/ec2-user/linpack/xlinpack_xeon64 /usr/sbin/
+
+sed -i s'|./xlinpack_$arch lininput_$arch|/usr/sbin/xlinpack_$arch /usr/share/linpack/lininput_$arch|g' /usr/sbin/runme_xeon64
