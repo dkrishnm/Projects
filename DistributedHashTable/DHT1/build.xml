@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="DHT" default="run" basedir=".">
+    <target name="init">
+        <property name="sourceDir" value="src" />
+        <property name="outputDir" value="classes" />
+        <property name="libdir" value="lib"/>
+        <property name="distlibdir" value="libdir"/>
+    </target>
+    <target name="clean" depends="init">
+        <deltree dir="${outputDir}" />
+    </target>
+    <target name="prepare" depends="clean">
+        <mkdir dir="${outputDir}" />
+    </target>
+
+    <target name="compile" depends="prepare">
+        <copy todir="${outputDir}/resources">
+            <fileset dir="resources"
+                     includes="**/*.xml,**/*.properties,**/*.txt,**/*.ico" />
+        </copy>
+        <path id="classpath">
+            <fileset dir="${libdir}" includes="**/*.jar"/>
+        </path>
+        <javac srcdir="${sourceDir}" destdir="${outputDir}" classpathref="classpath"/>
+    </target>
+    <target name="copy-dependencies">
+        <mkdir dir="${distlibdir}" />
+        <jar jarfile="${distlibdir}/dependencies-all.jar">
+            <zipgroupfileset dir="${libdir}">
+                <include name="**/*.jar" />
+            </zipgroupfileset>
+        </jar>
+
+    </target>
+    <target name="jar" depends="compile,copy-dependencies">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/DHT.jar" basedir="${outputDir}">
+            <manifest>
+                <attribute name="Main-Class" value="DHT"/>
+            </manifest>
+            <zipfileset src="${distlibdir}/dependencies-all.jar"
+                        excludes="META-INF/*.SF" />
+        </jar>
+    </target>
+    <target name="run" depends="jar">
+        <java jar="build/jar/DHT.jar"  fork="true"/>
+        <manifestclasspath>
+            <classpath>
+                <path refid="classpath"/>
+                <path location="jar/DHT.jar"/>
+            </classpath>
+        </manifestclasspath>
+    </target>
+</project>
