@@ -1,0 +1,42 @@
+In this project, data collected is for the five twitter accounts to perform community detection  and
+gender analysis on the followers. The five seed users are:
+      Java,Java_EE, ThePSF, R_Programming, DatascienceCtrl
+The above accounts where chosen to determine how the programming languages Java, R, Python are used in data science
+and web development domains and how these communities are related .
+Also I was interested in knowing the male-female percentage in the computer science/ programming areas.
+
+Implementation details:
+Collect.py
+Output-Users.pkl, followers.pkl,friends.pkl,male_names.pkl,female_names.pkl
+Followers and Friends of the above accounts are collected to build the network graph. The data dump of the users,followers and the friends
+are created which is used in the analysis henceforth.Due to twitter rate limits, the data collection is restricted to a count of 100.
+US census data is collected and a dump is created to perform gender analysis.
+
+Cluster.py.
+Output - BeforeClustering.png , AfterClustering.png
+Clustering is done on the network created using the above.Before the partitioning is performed, the communities Java- Java EE,
+Rprogramming-DatascienceCtrl is found to have more number of shared users.
+Partition is performed using Girvan- Newman algorithm
+Five communities where discovered using partitioning with average number of users per community 95.2, which finds the communities to have a good balance
+
+
+Classify.py
+Output- Classified followers.
+Classification is done based on the gender of the followers.Using the census data preliminary matching of the followers is done.
+Description of mentioned users with text is used as features to predict gender. Logistic regression model is used to fit and predict on the model
+From the gender prediction it could be found that the number of male users is much greater than the female users for these accounts,
+which indicates more males in the programming domain
+
+
+
+
+
+
+
+
+
+
+
+
+
+
